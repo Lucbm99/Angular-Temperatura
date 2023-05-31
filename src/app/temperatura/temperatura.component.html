@@ -1,0 +1,18 @@
+<form class="search-form" [formGroup]="temperaturaForm">
+    <input type="text" (keyup.enter)="pesquisarTemperaturaDaCidadeFornecida()" />
+
+    <mat-form-field appearance="outline">
+    <mat-label>CEP</mat-label>
+        <input
+            matInput
+            type="text"
+            [formControlName]="'cidade'"
+            autoFocus
+            required
+        />
+        <mat-error *ngIf="temperaturaForm.get('cidade')?.errors?.required">
+            O campo cidade é obrigatório.
+        </mat-error>
+    </mat-form-field>
+    <button type="button" (click)="pesquisarTemperaturaDaCidadeFornecida()">Pesquisar</button>
+</form>
