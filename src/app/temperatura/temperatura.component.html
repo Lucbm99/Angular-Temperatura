@@ -1,11 +1,11 @@
 <form class="search-form" [formGroup]="temperaturaForm">
-    <input type="text" (keyup.enter)="pesquisarTemperaturaDaCidadeFornecida()" />
 
     <mat-form-field appearance="outline">
-    <mat-label>CEP</mat-label>
+    <mat-label>Cidade</mat-label>
         <input
             matInput
             type="text"
+            (keyup.enter)="pesquisarTemperaturaDaCidadeFornecida()"
             [formControlName]="'cidade'"
             autoFocus
             required
