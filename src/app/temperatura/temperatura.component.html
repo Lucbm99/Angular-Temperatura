@@ -15,8 +15,11 @@
         </mat-error>
     </mat-form-field>
     <button type="button" (click)="pesquisarTemperaturaDaCidadeFornecida()">Pesquisar</button>
+    <button type="button" (click)="limparDadosDaPesquisaDeTemperatura()">Limpar</button>
 </form>
-<h3>Temperatura em celsius: {{ valorTemperaturaCidadeCelsius }}°C</h3>
-<h3>Temperatura em °F: {{ valorTemperaturaCidadeKelvin }}</h3>
-<h3>Temperatura em Kelvin: {{ valorTemperaturaCidadeFahrenheit }}</h3>
-<h3>Umidade: {{ valorUmidadeCidade }}%</h3>
+<section *ngIf="formularioSubmetido">
+    <h3>Temperatura em celsius: {{ valorTemperaturaCidadeCelsius }}°C</h3>
+    <h3>Temperatura em °F: {{ valorTemperaturaCidadeFahrenheit }}</h3>
+    <h3>Temperatura em Kelvin: {{ valorTemperaturaCidadeKelvin }} K</h3>
+    <h3>Umidade: {{ valorUmidadeCidade }}%</h3>
+</section>

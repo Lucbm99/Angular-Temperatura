@@ -14,6 +14,7 @@ export class TemperaturaComponent implements OnInit {
   public valorUmidadeCidade: any;
   public temperaturaForm: any;
   public cidade: any;
+  public formularioSubmetido: boolean = false;
 
   constructor(
     private _temperaturaService: TemperaturaService,
@@ -29,6 +30,7 @@ export class TemperaturaComponent implements OnInit {
   pesquisarTemperaturaDaCidadeFornecida() {
     this._temperaturaService.pesquisarTemperaturaDeUmaCidade(this.temperaturaForm.value.cidade).subscribe((response) => {
       const data = [ response ];
+      this.formularioSubmetido = true;
 
       const dadosExtraidosAPI = data.map(item => {
         const temperaturaCelsius = item.current.temp_c;
@@ -42,11 +44,14 @@ export class TemperaturaComponent implements OnInit {
         this.valorUmidadeCidade = umidade;
   
         console.log("°C: ", this.valorTemperaturaCidadeCelsius);
-        console.log("Kelvin: ", this.valorTemperaturaCidadeKelvin);
         console.log("°F: ", this.valorTemperaturaCidadeFahrenheit);
+        console.log("Kelvin: ", this.valorTemperaturaCidadeKelvin);
         console.log("Umidade: ", this.valorUmidadeCidade);
       });
     })
   }
 
+  limparDadosDaPesquisaDeTemperatura() {
+    this.formularioSubmetido = false;
+  }
 }
