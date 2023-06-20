@@ -1,6 +1,6 @@
-<form class="search-form" [formGroup]="temperaturaForm">
+<form [formGroup]="temperaturaForm" class="formulario-temperatura">
 
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" class="pesquisa-temperatura">
     <mat-label>Cidade</mat-label>
         <input
             matInput
@@ -14,12 +14,14 @@
             O campo cidade é obrigatório.
         </mat-error>
     </mat-form-field>
-    <button type="button" (click)="pesquisarTemperaturaDaCidadeFornecida()">Pesquisar</button>
-    <button type="button" (click)="limparDadosDaPesquisaDeTemperatura()">Limpar</button>
+    <section class="botoes-pesquisa">
+        <button mat-flat-button color="warn" (click)="limparDadosDaPesquisaDeTemperatura()">Limpar</button>
+        <button mat-flat-button color="primary" (click)="pesquisarTemperaturaDaCidadeFornecida()">Pesquisar</button>
+    </section>
 </form>
-<section *ngIf="formularioSubmetido">
-    <h3>Temperatura em celsius: {{ valorTemperaturaCidadeCelsius }}°C</h3>
-    <h3>Temperatura em °F: {{ valorTemperaturaCidadeFahrenheit }}</h3>
-    <h3>Temperatura em Kelvin: {{ valorTemperaturaCidadeKelvin }} K</h3>
+<section *ngIf="formularioSubmetido" class="dados-temperatura">
+    <h3>Temperatura em Celsius: {{ valorTemperaturaCidadeCelsius }} °C</h3>
+    <h3>Temperatura em Fahrenheit: {{ valorTemperaturaCidadeFahrenheit }} °F</h3>
+    <h3>Temperatura em Kelvin: {{ valorTemperaturaCidadeKelvin | number : '1.2-2' }} K</h3>
     <h3>Umidade: {{ valorUmidadeCidade }}%</h3>
 </section>
