@@ -1,27 +1,38 @@
-<form [formGroup]="temperaturaForm" class="formulario-temperatura">
+<mat-card class="card-formulario">
+    <mat-card-content>
+        <form [formGroup]="temperaturaForm" class="formulario-temperatura">
+            <h2 class="descricao">Pesquise a temperatura da sua cidade no formulário abaixo:</h2>
+            <mat-form-field appearance="outline" class="pesquisa-temperatura">
 
-    <mat-form-field appearance="outline" class="pesquisa-temperatura">
-    <mat-label>Cidade</mat-label>
-        <input
-            matInput
-            type="text"
-            (keyup.enter)="pesquisarTemperaturaDaCidadeFornecida()"
-            [formControlName]="'cidade'"
-            autoFocus
-            required
-        />
-        <mat-error *ngIf="temperaturaForm.get('cidade')?.errors?.required">
-            O campo cidade é obrigatório.
-        </mat-error>
-    </mat-form-field>
-    <section class="botoes-pesquisa">
-        <button mat-flat-button color="warn" (click)="limparDadosDaPesquisaDeTemperatura()">Limpar</button>
-        <button mat-flat-button color="primary" (click)="pesquisarTemperaturaDaCidadeFornecida()">Pesquisar</button>
-    </section>
-</form>
-<section *ngIf="formularioSubmetido" class="dados-temperatura">
-    <h3>Temperatura em Celsius: {{ valorTemperaturaCidadeCelsius }} °C</h3>
-    <h3>Temperatura em Fahrenheit: {{ valorTemperaturaCidadeFahrenheit }} °F</h3>
-    <h3>Temperatura em Kelvin: {{ valorTemperaturaCidadeKelvin | number : '1.2-2' }} K</h3>
-    <h3>Umidade: {{ valorUmidadeCidade }}%</h3>
-</section>
+            <mat-label>Cidade</mat-label>
+                <input
+                    matInput
+                    type="text"
+                    (keyup.enter)="pesquisarTemperaturaDaCidadeFornecida()"
+                    [formControlName]="'cidade'"
+                    autoFocus
+                    required
+                />
+                <mat-error *ngIf="temperaturaForm.get('cidade')?.errors?.required">
+                    O campo cidade é obrigatório.
+                </mat-error>
+            </mat-form-field>
+            <section class="botoes-pesquisa">
+                <button mat-flat-button color="warn" (click)="limparDadosDaPesquisaDeTemperatura()">Limpar</button>
+                <button mat-flat-button color="primary" (click)="pesquisarTemperaturaDaCidadeFornecida()">Pesquisar</button>
+            </section>
+        </form>
+    </mat-card-content>
+</mat-card>
+<mat-card *ngIf="formularioSubmetido">
+    <mat-card-content>
+        <section class="dados-temperatura">
+            <h2>Cidade: {{ localizacao }} - {{ regiao }}</h2>
+            <h2>País: {{ pais }}</h2>
+            <h3>Temperatura em Celsius: {{ valorTemperaturaCidadeCelsius }} °C</h3>
+            <h3>Temperatura em Fahrenheit: {{ valorTemperaturaCidadeFahrenheit }} °F</h3>
+            <h3>Temperatura em Kelvin: {{ valorTemperaturaCidadeKelvin | number : '1.2-2' }} K</h3>
+            <h3>Umidade: {{ valorUmidadeCidade }}%</h3>
+        </section>
+    </mat-card-content>
+</mat-card>

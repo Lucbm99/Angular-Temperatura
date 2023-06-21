@@ -1,24 +1,40 @@
-.formulario-temperatura {
-    padding: 3rem;
+mat-card {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 1rem; 
+}
+
+mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,1), 
+                0 1px 1px 0 rgba(0,0,0,1), 
+                0 1px 3px 0 rgba(0,0,0,1);
+    background-color: #F2F1F1;
+}
+
+.descricao {
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .pesquisa-temperatura {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 1.25rem;
 }
 
 .pesquisa-temperatura input {
-    padding: 10px;
+    padding: 0.625rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
+    border-radius: 0.3125rem;
+    margin-right: 0.625rem;
 }
 
 .pesquisa-temperatura button {
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.3125rem;
     cursor: pointer;
 }
 
@@ -30,4 +46,5 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 1rem;
 }

@@ -8,6 +8,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./temperatura.component.css']
 })
 export class TemperaturaComponent implements OnInit {
+  public localizacao: any;
+  public regiao: any;
+  public pais: any;
   public valorTemperaturaCidadeCelsius: any;
   public valorTemperaturaCidadeKelvin: any;
   public valorTemperaturaCidadeFahrenheit: any;
@@ -30,14 +33,23 @@ export class TemperaturaComponent implements OnInit {
   pesquisarTemperaturaDaCidadeFornecida() {
     this._temperaturaService.pesquisarTemperaturaDeUmaCidade(this.temperaturaForm.value.cidade).subscribe((response) => {
       const data = [ response ];
+
+      console.log(data); 
+
       this.formularioSubmetido = true;
 
       const dadosExtraidosAPI = data.map(item => {
+        const localizacao = item.location.name;
+        const regiao = item.location.region;
+        const pais = item.location.country;
         const temperaturaCelsius = item.current.temp_c;
         const temperaturaFahrenheit = item.current.temp_f;
         const temperaturaKelvin = temperaturaCelsius + 273.15;
         const umidade = item.current.humidity;
         
+        this.localizacao = localizacao;
+        this.regiao = regiao;
+        this.pais = pais;
         this.valorTemperaturaCidadeCelsius = temperaturaCelsius;
         this.valorTemperaturaCidadeKelvin = temperaturaKelvin;
         this.valorTemperaturaCidadeFahrenheit = temperaturaFahrenheit;
@@ -53,5 +65,6 @@ export class TemperaturaComponent implements OnInit {
 
   limparDadosDaPesquisaDeTemperatura() {
     this.formularioSubmetido = false;
+    this.temperaturaForm.reset();
   }
 }
