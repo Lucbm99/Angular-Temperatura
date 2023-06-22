@@ -27,12 +27,14 @@
 <mat-card *ngIf="formularioSubmetido">
     <mat-card-content>
         <section class="dados-temperatura">
+            <img src="{{ imagemTempo }}" alt="Tempo na cidade {{ localizacao }} - {{ regiao }} - {{ pais }}">
             <h2>Cidade: {{ localizacao }} - {{ regiao }}</h2>
             <h2>País: {{ pais }}</h2>
-            <h3>Temperatura em Celsius: {{ valorTemperaturaCidadeCelsius }} °C</h3>
-            <h3>Temperatura em Fahrenheit: {{ valorTemperaturaCidadeFahrenheit }} °F</h3>
-            <h3>Temperatura em Kelvin: {{ valorTemperaturaCidadeKelvin | number : '1.2-2' }} K</h3>
+            <h3>°C: {{ valorTemperaturaCidadeCelsius }} °C</h3>
+            <h3>°F: {{ valorTemperaturaCidadeFahrenheit }} °F</h3>
+            <h3>K: {{ valorTemperaturaCidadeKelvin | number : '1.2-2' }} K</h3>
             <h3>Umidade: {{ valorUmidadeCidade }}%</h3>
+            <h4>Tempo atual: {{ textoCondicao }} </h4>
         </section>
     </mat-card-content>
 </mat-card>

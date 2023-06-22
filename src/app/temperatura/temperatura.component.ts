@@ -8,15 +8,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./temperatura.component.css']
 })
 export class TemperaturaComponent implements OnInit {
-  public localizacao: any;
-  public regiao: any;
-  public pais: any;
+  public localizacao: string = '';
+  public regiao: string = '';
+  public pais: string = '';
   public valorTemperaturaCidadeCelsius: any;
   public valorTemperaturaCidadeKelvin: any;
   public valorTemperaturaCidadeFahrenheit: any;
   public valorUmidadeCidade: any;
+  public textoCondicao: string = '';
+  public imagemTempo: string = '';
+  
   public temperaturaForm: any;
-  public cidade: any;
+  public cidade: string = '';
   public formularioSubmetido: boolean = false;
 
   constructor(
@@ -46,7 +49,9 @@ export class TemperaturaComponent implements OnInit {
         const temperaturaFahrenheit = item.current.temp_f;
         const temperaturaKelvin = temperaturaCelsius + 273.15;
         const umidade = item.current.humidity;
-        
+        const condicaoTemperatura = item.current.condition.text;
+        const imagemTemperatura = item.current.condition.icon;
+
         this.localizacao = localizacao;
         this.regiao = regiao;
         this.pais = pais;
@@ -54,11 +59,8 @@ export class TemperaturaComponent implements OnInit {
         this.valorTemperaturaCidadeKelvin = temperaturaKelvin;
         this.valorTemperaturaCidadeFahrenheit = temperaturaFahrenheit;
         this.valorUmidadeCidade = umidade;
-  
-        console.log("°C: ", this.valorTemperaturaCidadeCelsius);
-        console.log("°F: ", this.valorTemperaturaCidadeFahrenheit);
-        console.log("Kelvin: ", this.valorTemperaturaCidadeKelvin);
-        console.log("Umidade: ", this.valorUmidadeCidade);
+        this.textoCondicao = condicaoTemperatura;
+        this.imagemTempo = imagemTemperatura;
       });
     })
   }

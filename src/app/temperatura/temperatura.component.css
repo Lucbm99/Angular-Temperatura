@@ -1,5 +1,5 @@
 mat-card {
-    padding: 2rem;
+    /* padding: 2rem; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,8 +38,16 @@ mat-card:not([class*=mat-elevation-z]) {
     cursor: pointer;
 }
 
+.botoes-pesquisa:hover {
+    text-decoration: underline;
+}
+
 .dados-temperatura {
     text-align: center;
+}
+
+.dados-temperatura h2, .dados-temperatura h3, .dados-temperatura h4 {
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .botoes-pesquisa {
