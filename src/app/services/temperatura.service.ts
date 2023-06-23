@@ -21,8 +21,11 @@ export class TemperaturaService {
       tap((data: any) => {
         data
     }),
-    catchError((error: HttpErrorResponse) => { 
+    catchError((error: HttpErrorResponse) => {
       console.log('error', error);
+      if(error.status === 400) {
+        alert("Cidade não encontrada. Verifique e tente novamente.")
+      }
       return EMPTY; 
     }),
   )}

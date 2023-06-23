@@ -38,10 +38,6 @@ mat-card:not([class*=mat-elevation-z]) {
     cursor: pointer;
 }
 
-.botoes-pesquisa:hover {
-    text-decoration: underline;
-}
-
 .dados-temperatura {
     text-align: center;
 }

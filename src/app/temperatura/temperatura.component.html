@@ -8,9 +8,7 @@
                 <input
                     matInput
                     type="text"
-                    (keyup.enter)="pesquisarTemperaturaDaCidadeFornecida()"
                     [formControlName]="'cidade'"
-                    autoFocus
                     required
                 />
                 <mat-error *ngIf="temperaturaForm.get('cidade')?.errors?.required">

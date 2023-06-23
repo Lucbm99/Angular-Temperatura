@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TemperaturaService } from './../services/temperatura.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-temperatura',
   templateUrl: './temperatura.component.html',
-  styleUrls: ['./temperatura.component.css']
+  styleUrls: ['./temperatura.component.css'],
 })
 export class TemperaturaComponent implements OnInit {
   public localizacao: string = '';
@@ -29,16 +29,19 @@ export class TemperaturaComponent implements OnInit {
 
   ngOnInit(): void {
     this.temperaturaForm = this._formBuilder.group({
-      cidade: ['', [Validators.required]],
+      cidade: ['', Validators.required],
     });
   }
 
   pesquisarTemperaturaDaCidadeFornecida() {
     this._temperaturaService.pesquisarTemperaturaDeUmaCidade(this.temperaturaForm.value.cidade).subscribe((response) => {
+
+      if (this.temperaturaForm.get('cidade').value === null) {
+        alert("Campo em branco. Verifique e tente novamente");
+        return;
+      }
+
       const data = [ response ];
-
-      console.log(data); 
-
       this.formularioSubmetido = true;
 
       const dadosExtraidosAPI = data.map(item => {
