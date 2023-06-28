@@ -17,7 +17,8 @@ export class TemperaturaComponent implements OnInit {
   public valorUmidadeCidade: any;
   public textoCondicao: string = '';
   public imagemTempo: string = '';
-  
+  public inputValue: string = '';
+
   public temperaturaForm: any;
   public cidade: string = '';
   public formularioSubmetido: boolean = false;
@@ -35,9 +36,10 @@ export class TemperaturaComponent implements OnInit {
 
   pesquisarTemperaturaDaCidadeFornecida() {
     this._temperaturaService.pesquisarTemperaturaDeUmaCidade(this.temperaturaForm.value.cidade).subscribe((response) => {
+      console.log('Entered value:', this.inputValue);
 
       if (this.temperaturaForm.get('cidade').value === null) {
-        alert("Campo em branco. Verifique e tente novamente");
+        alert("Campo em branco. Verifique e tente novamente.");
         return;
       }
 

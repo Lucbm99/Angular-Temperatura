@@ -17,7 +17,7 @@ export class TemperaturaService {
 
   public pesquisarTemperaturaDeUmaCidade(cidade: string): Observable<any> {
 
-    return this._httpClient.get(`${this.baseURL+'?key='+this.apiKey+'&q='+cidade+'&aqi=no'}`).pipe(
+    return this._httpClient.get(`${this.baseURL+'?key='+this.apiKey+'&q='+cidade+'&aqi=no&lang=pt'}`).pipe(
       tap((data: any) => {
         data
     }),
