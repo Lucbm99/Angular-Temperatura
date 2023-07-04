@@ -3,7 +3,7 @@ mat-card {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 1rem 1rem; 
+    /* margin: 1rem 1rem;  */
 }
 
 mat-card:not([class*=mat-elevation-z]) {
@@ -50,5 +50,9 @@ mat-card:not([class*=mat-elevation-z]) {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 1rem;
+}
+
+.card-dados-temperatura {
     margin-top: 1rem;
 }
