@@ -1,6 +1,6 @@
 <mat-card class="card-formulario">
     <mat-card-content>
-        <form [formGroup]="temperaturaForm" class="formulario-temperatura" (keydown.enter)="pesquisarTemperaturaDaCidadeFornecida()">
+        <form [formGroup]="temperaturaForm" class="formulario-temperatura" (keyup.enter)="pesquisarTemperaturaDaCidadeFornecida()">
             <h2 class="descricao">Pesquise a temperatura da sua cidade no formulário abaixo:</h2>
             <mat-form-field appearance="outline" class="pesquisa-temperatura">
             <mat-label>Cidade</mat-label>
@@ -16,7 +16,7 @@
             </mat-form-field>
             <section class="botoes-pesquisa">
                 <button mat-flat-button color="warn" (click)="limparDadosDaPesquisaDeTemperatura()">Limpar</button>
-                <button mat-flat-button color="primary" (click)="pesquisarTemperaturaDaCidadeFornecida()">Pesquisar</button>
+                <button type="submit" mat-flat-button color="primary" (click)="pesquisarTemperaturaDaCidadeFornecida()">Pesquisar</button>
             </section>
         </form>
     </mat-card-content>
