@@ -34,15 +34,16 @@ export class TemperaturaComponent implements OnInit {
   }
 
   pesquisarTemperaturaDaCidadeFornecida() {
-    this._temperaturaService.pesquisarTemperaturaDeUmaCidade(this.temperaturaForm.value.cidade).subscribe((response) => {
-      const nameValue = this.temperaturaForm.get('cidade').value;
-      console.log('Entered value:', nameValue);
 
-      if (this.temperaturaForm.get('cidade').value === null) {
-        alert("Campo em branco. Verifique e tente novamente.");
-        return;
-      } else {
-
+    const cidadeValue = this.temperaturaForm.controls['cidade'].value;
+    console.log('Entered value:', cidadeValue);
+  
+    if (!cidadeValue) {
+      alert("Campo em branco. Verifique e tente novamente.");
+      return;
+    }
+    
+    this._temperaturaService.pesquisarTemperaturaDeUmaCidade(cidadeValue).subscribe((response) => {
         const data = [ response ];
         this.formularioSubmetido = true;
 
@@ -67,12 +68,11 @@ export class TemperaturaComponent implements OnInit {
           this.textoCondicao = condicaoTemperatura;
           this.imagemTempo = imagemTemperatura;
         });
-      }
     })
   }
 
   limparDadosDaPesquisaDeTemperatura() {
-    this.formularioSubmetido = false;
     this.temperaturaForm.reset();
+    this.formularioSubmetido = false;
   }
 }
