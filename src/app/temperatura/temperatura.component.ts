@@ -40,6 +40,7 @@ export class TemperaturaComponent implements OnInit {
   
     if (!cidadeValue) {
       alert("Campo em branco. Verifique e tente novamente.");
+      this.formularioSubmetido = false;
       return;
     }
     

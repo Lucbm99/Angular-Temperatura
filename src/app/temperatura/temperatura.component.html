@@ -5,24 +5,32 @@
             <mat-form-field appearance="outline" class="pesquisa-temperatura">
                 <mat-label>Cidade</mat-label>
                 <input
-                matInput
-                type="text"
-                formControlName="cidade"
-                required
-                (keyup.enter)="pesquisarTemperaturaDaCidadeFornecida()"
+                    matInput
+                    type="text"
+                    formControlName="cidade"
+                    required
                 />
                 <mat-error *ngIf="temperaturaForm.get('cidade')?.errors?.required">
                 O campo cidade é obrigatório.
                 </mat-error>
             </mat-form-field>
             <section class="botoes-pesquisa">
-                <button mat-flat-button color="warn" (click)="limparDadosDaPesquisaDeTemperatura()">Limpar</button>
+                <button mat-flat-button type="reset" color="warn">Limpar</button>
                 <button mat-flat-button type="submit" color="primary">Pesquisar</button>
             </section>
         </form>
     </mat-card-content>
 </mat-card>
-<mat-card *ngIf="formularioSubmetido" class="card-dados-temperatura">
+    <mat-card   
+        *ngIf="formularioSubmetido" 
+        class="card-dados-temperatura"
+        [ngClass]="
+            { 
+                'ensolarado': valorTemperaturaCidadeCelsius >= 30, 
+                'ameno': valorTemperaturaCidadeCelsius >= 20 && valorTemperaturaCidadeCelsius < 30,
+                'frio': valorTemperaturaCidadeCelsius < 20,
+            }"
+    >
     <mat-card-content>
         <section class="dados-temperatura">
             <img src="{{ imagemTempo }}" alt="Tempo na cidade {{ localizacao }} - {{ regiao }} - {{ pais }}">

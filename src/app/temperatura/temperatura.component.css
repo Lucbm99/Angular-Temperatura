@@ -1,16 +1,14 @@
 mat-card {
-    /* padding: 2rem; */
     display: flex;
     align-items: center;
     justify-content: center;
-    /* margin: 1rem 1rem;  */
 }
 
 mat-card:not([class*=mat-elevation-z]) {
     box-shadow: 0 2px 1px -1px rgba(0,0,0,1), 
                 0 1px 1px 0 rgba(0,0,0,1), 
                 0 1px 3px 0 rgba(0,0,0,1);
-    background-color: #F2F1F1;
+    /* background-color: #F8F8F9; */
 }
 
 .descricao {
@@ -55,4 +53,16 @@ mat-card:not([class*=mat-elevation-z]) {
 
 .card-dados-temperatura {
     margin-top: 1rem;
+}
+
+.ensolarado {
+    background-color: #F6F484;
+}
+
+.ameno {
+    background-color: #6CE6DE;
+}
+
+.frio {
+    background-color: #AACFCD;
 }
