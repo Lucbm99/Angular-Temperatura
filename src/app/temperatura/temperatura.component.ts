@@ -36,7 +36,6 @@ export class TemperaturaComponent implements OnInit {
   pesquisarTemperaturaDaCidadeFornecida() {
 
     const cidadeValue = this.temperaturaForm.controls['cidade'].value;
-    console.log('Entered value:', cidadeValue);
   
     if (!cidadeValue) {
       alert("Campo em branco. Verifique e tente novamente.");
