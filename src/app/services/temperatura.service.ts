@@ -8,7 +8,7 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class TemperaturaService {
 
-  private baseURL: string = 'http://api.weatherapi.com/v1/current.json';
+  private baseURL: string = 'https://api.weatherapi.com/v1/current.json';
   private apiKey: string = 'e0c00e31de4b4f6896d03822233105'
 
   constructor(
