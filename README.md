@@ -42,6 +42,7 @@ NPM: https://npmjs.com
 
 Link para acesso: https://angular-temperatura.vercel.app
 
+Vídeo demo: https://youtu.be/YniPnCjMRpA
 
 ## 🛠️ Feito com
 * [NodeJS](https://nodejs.org/en/)
